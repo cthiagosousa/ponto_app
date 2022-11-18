@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:get_it/get_it.dart';
 import 'package:ponto_app/modules/app/controller.dart';
+import 'package:ponto_app/modules/office_hour/controller.dart';
+import 'package:ponto_app/modules/office_hour/repository.dart';
 import 'package:ponto_app/modules/services/dio.dart';
 import 'package:ponto_app/modules/user/controller.dart';
 import 'package:ponto_app/modules/user/repository.dart';
@@ -12,6 +14,7 @@ void setupLocator() {
 
   Get.registerLazySingleton<AppController>(() => AppController());
   Get.registerLazySingleton<UserController>(() => UserController(UserRepositoryImp(dio)));
+  Get.registerLazySingleton<OfficeHourController>(() => OfficeHourController(OfficeHourRepositoryImp(dio)));
 }
 
 class Get {
