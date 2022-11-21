@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:ponto_app/modules/home/presentation.dart';
 import 'package:ponto_app/modules/home/screen.dart';
 
 RouterConfig<Object> router() {
@@ -10,7 +11,7 @@ RouterConfig<Object> router() {
 
 List<RouteBase> _generateRoutes() {
   return <RouteBase>[
-    GoRoute(path: "/", name: "Home", builder: (context, state) => const HomeScreen(),
+    GoRoute(path: "/", name: "Home", builder: (context, state) => HomeScreen(HomePresentation()),
     ),
   ];
 }

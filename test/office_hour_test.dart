@@ -1,5 +1,6 @@
 import 'package:faker/faker.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:get/get.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:ponto_app/modules/office_hour/controller.dart';
 import 'package:ponto_app/modules/office_hour/model.dart';
