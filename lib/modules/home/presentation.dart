@@ -1,5 +1,5 @@
 import 'package:ponto_app/modules/utils/utils.dart';
 
 class HomePresentation {
-  String get date => dateNow();
+  String get date => dateNowWithWeekName();
 }

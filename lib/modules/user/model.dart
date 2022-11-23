@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:ponto_app/modules/utils/dateformat.dart';
 
 class User {

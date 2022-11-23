@@ -1,6 +1,8 @@
 import 'package:ponto_app/modules/interfaces/http_service.dart';
 import 'package:ponto_app/modules/office_hour/model.dart';
+import 'package:ponto_app/modules/services/database/db.dart';
 import 'package:ponto_app/modules/utils/logger.dart';
+import 'package:ponto_app/objectbox.g.dart';
 
 abstract class IOfficeHourRepository {
   Future<List<OfficeHour>> fetch(int userID);
@@ -11,8 +13,11 @@ abstract class IOfficeHourRepository {
 
 class OfficeHourRepositoryImp implements IOfficeHourRepository {
   final HttpService client;
+  final IDB db;
 
-  const OfficeHourRepositoryImp(this.client);
+  const OfficeHourRepositoryImp(this.client, this.db);
+
+  Box<OfficeHour> get box => db.box<OfficeHour>();
 
   @override
   Future<List<OfficeHour>> fetch(int userID) async {

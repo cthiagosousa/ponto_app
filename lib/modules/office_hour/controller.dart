@@ -1,10 +1,11 @@
+import 'package:get/get.dart';
 import 'package:ponto_app/modules/office_hour/model.dart';
 import 'package:ponto_app/modules/office_hour/repository.dart';
 
-class OfficeHourController {
+class OfficeHourController extends GetxController {
   final IOfficeHourRepository repository;
 
-  const OfficeHourController(this.repository);
+  OfficeHourController(this.repository);
 
   Future<List<OfficeHour>?> fetch(int userID) async {
     try {

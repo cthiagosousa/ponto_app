@@ -1,26 +1,42 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-abstract class Screen<T> extends GetView<T> {
+abstract class AppBase<T> extends GetView<T> {
+  const AppBase({super.key});
+
+  Widget builder(BuildContext context, ThemeData theme);
+
+  @override
+  Widget build(BuildContext context) {
+    return builder(context, Theme.of(context));
+  }
+}
+
+
+abstract class Screen<T> extends AppBase<T> {
   final PreferredSizeWidget? appBar;
 
-  Screen({
+  const Screen({
     super.key, 
     this.appBar, 
   });
-
-  final ScrollController _scrollController = ScrollController();
-
-  Widget builder(BuildContext context, ThemeData theme, ScrollController scroll);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar,
       body: SingleChildScrollView(
-        controller: _scrollController,
-        child: builder(context, Theme.of(context), _scrollController),
+        child: builder(context, Theme.of(context)),
       ),
     );
+  }
+}
+
+abstract class AppWidget<T> extends AppBase<T> {
+  const AppWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return builder(context, Theme.of(context));
   }
 }

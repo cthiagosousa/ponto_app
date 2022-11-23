@@ -1,14 +1,21 @@
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
+import 'package:objectbox/objectbox.dart';
 import 'package:ponto_app/modules/utils/dateformat.dart';
 
+@Entity()
 class OfficeHour {
   int? id;
   int? user;
+  @Property(type: PropertyType.date)
   DateTime? day;
+  @Property(type: PropertyType.date)
   DateTime? entryTime;
+  @Property(type: PropertyType.date)
   DateTime? exitTime;
+  @Property(type: PropertyType.date)
   DateTime? overtime;
+  @Property(type: PropertyType.date)
   DateTime? totalAmountHours;
   List<Break>? breaks;
 
@@ -110,10 +117,13 @@ class OfficeHour {
   }
 }
 
+@Entity()
 class Break {
   int? id;
   int? officeHour;
+  @Property(type: PropertyType.date)
   DateTime? start;
+  @Property(type: PropertyType.date)
   DateTime? end;
 
   Break({
