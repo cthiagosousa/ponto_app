@@ -22,16 +22,12 @@ class OfficeHourRepositoryImp implements IOfficeHourRepository {
   @override
   Future<List<OfficeHour>> fetch(int userID) async {
     try {
-      final response = await client.get({"path": "/office-hours/$userID"});
-      if(response.success) {
-        if(response.data is List) {
-          final data = (response.data as List).map((e) => OfficeHour.fromMap(e));
-          return data.toList();
-        }
-        return [];
-      } else {
-        return Future.error(response.errorMessage!);
+      final response = await client.get("/office-hours/$userID");
+      if(response.data is List) {
+        final data = (response.data as List).map((e) => OfficeHour.fromMap(e));
+        return data.toList();
       }
+      return [];
     } catch (error, exception) {
       errorMsg("GET OfficeHour Method Error", error, exception);
       rethrow;
@@ -39,15 +35,11 @@ class OfficeHourRepositoryImp implements IOfficeHourRepository {
   }
 
   @override
-  Future<OfficeHour> create(OfficeHour data) async {
+  Future<OfficeHour> create(OfficeHour hour) async {
     try {
-      final response = await client.post({"path": "/office-hours", "data": data.toMap()});
-      if(response.success) {
-        final data = OfficeHour.fromMap(response.data);
-        return data;
-      } else {
-        return Future.error(response.errorMessage!);
-      }
+      final response = await client.post("/office-hours", data: hour.toMap());
+      final data = OfficeHour.fromMap(response.data);
+      return data;
     } catch (error, exception) {
       errorMsg("CREATE OfficeHour Method Error", error, exception);
       rethrow;

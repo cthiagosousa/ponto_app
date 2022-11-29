@@ -21,13 +21,9 @@ class UserRepositoryImp implements IUserRepository {
   @override
   Future<User> get(int id) async {
     try {
-      final response = await client.get({"path": "/user/$id"});
-      if(response.success) {
-        final data = User.fromMap(response.data);
-        return data;
-      } else {
-        return Future.error(response.errorMessage!);
-      }
+      final response = await client.get("/user/$id");
+      final data = User.fromMap(response.data);
+      return data;
     } catch (error, exception) {
       errorMsg("GET User Method Error", error, exception);
       rethrow;
@@ -35,15 +31,11 @@ class UserRepositoryImp implements IUserRepository {
   }
 
   @override
-  Future<User> create(User data) async {
+  Future<User> create(User user) async {
     try {
-      final response = await client.post({"path": "/user", "data": data.toMap()});
-      if(response.success) {
-        final data = User.fromMap(response.data);
-        return data;
-      } else {
-        return Future.error(response.errorMessage!);
-      }
+      final response = await client.post("/user", data: user.toMap());
+      final data = User.fromMap(response.data);
+      return data;
     } catch (error, exception) {
       errorMsg("CREATE User Method Error", error, exception);
       rethrow;

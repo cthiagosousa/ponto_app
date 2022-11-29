@@ -16,48 +16,28 @@ class DioService implements HttpService {
     final Dio _dio = Dio(options);
     return _dio;
   }
-
+  
   @override
-  FutureOr<HttpResponse> fetch(Map<String, dynamic>? params) {
+  Future<HttpResponse<T>> get<T>(path, {data, queryParameters, headers}) {
+    // TODO: implement fetch
     throw UnimplementedError();
   }
-
+  
   @override
-  FutureOr<HttpResponse> get(Map<String, dynamic>? params) async {
-    try {
-      final path = params?["path"];
-      final queryParameters = params?["queryParameters"];
-      final response = await dio.get(path, queryParameters: queryParameters);
-      return HttpResponse.success(response.statusCode!, response.data);
-    } on DioError catch (error) {
-      return HttpResponse.error(error.response!.statusCode!, error.message);
-    } catch (error, exception) {
-      return Future.error(error, exception);
-    }
-  }
-
-  @override
-  FutureOr<HttpResponse> post(Map<String, dynamic>? params) async {
-    try {
-      final path = params?["path"];
-      final queryParameters = params?["queryParameters"];
-      final data = params?["data"];
-      final response = await dio.post(path, queryParameters: queryParameters, data: data);
-      return HttpResponse.success(response.statusCode!, response.data);
-    } on DioError catch (error) {
-      return HttpResponse.error(error.response!.statusCode!, error.message);
-    } catch (error, exception) {
-      return Future.error(error, exception);
-    }
-  }
-
-  @override
-  FutureOr<HttpResponse> update(Map<String, dynamic>? params) {
+  Future<HttpResponse<T>> post<T>(path, {data, queryParameters, headers}) {
+    // TODO: implement post
     throw UnimplementedError();
   }
-
+  
   @override
-  FutureOr<HttpResponse> delete(Map<String, dynamic>? params) {
+  Future<HttpResponse<T>> put<T>(path, {data, queryParameters, headers}) {
+    // TODO: implement update
+    throw UnimplementedError();
+  }
+  
+  @override
+  Future<HttpResponse<T>> delete<T>(path, {data, queryParameters, headers}) {
+    // TODO: implement delete
     throw UnimplementedError();
   }
 }
