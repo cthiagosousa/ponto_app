@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "552112263672",
-    "project_id": "ponto-app-7e2a7",
-    "storage_bucket": "ponto-app-7e2a7.appspot.com"
+    "project_number": "45551624761",
+    "project_id": "ponto-app-b34eb",
+    "storage_bucket": "ponto-app-b34eb.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:552112263672:android:d1f5288c7d29ccfa47860d",
+        "mobilesdk_app_id": "1:45551624761:android:b2927cf99417029d55a3e8",
         "android_client_info": {
           "package_name": "com.example.ponto_app"
         }
       },
       "oauth_client": [
         {
-          "client_id": "552112263672-7ldorkns346uj92i8dqmplur0v7c49vb.apps.googleusercontent.com",
+          "client_id": "45551624761-7rdhv26p81t48653c0ulutcevi3r5bqb.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAwzfmB0KttpCBQaD5XC8dqgV9ukKmsIMA"
+          "current_key": "AIzaSyCzN0gDL_W2U5QXAjoCSLYNr2Pq0OK5A68"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "552112263672-7ldorkns346uj92i8dqmplur0v7c49vb.apps.googleusercontent.com",
+              "client_id": "45551624761-7rdhv26p81t48653c0ulutcevi3r5bqb.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

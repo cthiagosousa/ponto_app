@@ -50,20 +50,20 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyAwzfmB0KttpCBQaD5XC8dqgV9ukKmsIMA',
-    appId: '1:552112263672:android:d1f5288c7d29ccfa47860d',
-    messagingSenderId: '552112263672',
-    projectId: 'ponto-app-7e2a7',
-    storageBucket: 'ponto-app-7e2a7.appspot.com',
+    apiKey: 'AIzaSyCzN0gDL_W2U5QXAjoCSLYNr2Pq0OK5A68',
+    appId: '1:45551624761:android:b2927cf99417029d55a3e8',
+    messagingSenderId: '45551624761',
+    projectId: 'ponto-app-b34eb',
+    storageBucket: 'ponto-app-b34eb.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyA_npN7BF8cH_pBvHBhqz0TVXs3FaB6PAc',
-    appId: '1:552112263672:ios:6f47c87269865a5047860d',
-    messagingSenderId: '552112263672',
-    projectId: 'ponto-app-7e2a7',
-    storageBucket: 'ponto-app-7e2a7.appspot.com',
-    iosClientId: '552112263672-svmakn6vt0p39m1ch841010jrp1buk9u.apps.googleusercontent.com',
+    apiKey: 'AIzaSyDOJIExYQSNBHlKG3BHW2QVWyDA0TqhfrU',
+    appId: '1:45551624761:ios:c54ab0cb37cf683155a3e8',
+    messagingSenderId: '45551624761',
+    projectId: 'ponto-app-b34eb',
+    storageBucket: 'ponto-app-b34eb.appspot.com',
+    iosClientId: '45551624761-v92hr7ijbl4mh945154vfula73mh6d1j.apps.googleusercontent.com',
     iosBundleId: 'com.example.pontoApp',
   );
 }
