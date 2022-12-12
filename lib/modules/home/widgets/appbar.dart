@@ -5,7 +5,7 @@ import 'package:ponto_app/modules/ui/base.dart';
 import 'package:ponto_app/modules/user/controller.dart';
 import 'package:ponto_app/modules/utils/utils.dart';
 
-class HomeAppBar extends AppWidget<UserController> {
+class HomeAppBar extends WidgetBase<UserController> {
   const HomeAppBar({super.key});
 
   @override

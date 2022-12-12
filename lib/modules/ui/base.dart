@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:ponto_app/modules/services/locator.dart';
 
-abstract class AppBase<T> extends GetView<T> {
+abstract class AppBase<T extends Object> extends StatelessWidget {
   const AppBase({super.key});
+
+  T get controller => getIt.get<T>();
 
   Widget builder(BuildContext context, ThemeData theme);
 
@@ -13,10 +15,10 @@ abstract class AppBase<T> extends GetView<T> {
 }
 
 
-abstract class Screen<T> extends AppBase<T> {
+abstract class ScreenBase<T extends Object> extends AppBase<T> {
   final PreferredSizeWidget? appBar;
 
-  const Screen({
+  const ScreenBase({
     super.key, 
     this.appBar, 
   });
@@ -32,8 +34,8 @@ abstract class Screen<T> extends AppBase<T> {
   }
 }
 
-abstract class AppWidget<T> extends AppBase<T> {
-  const AppWidget({super.key});
+abstract class WidgetBase<T extends Object> extends AppBase<T> {
+  const WidgetBase({super.key});
 
   @override
   Widget build(BuildContext context) {

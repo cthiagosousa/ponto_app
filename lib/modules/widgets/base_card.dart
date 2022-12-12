@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ponto_app/modules/ui/base.dart';
 
-class BaseCard extends AppWidget {
+class BaseCard extends WidgetBase {
   final Widget child;
   const BaseCard({super.key, required this.child});
 

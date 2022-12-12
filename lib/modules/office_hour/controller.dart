@@ -1,8 +1,7 @@
-import 'package:get/get.dart';
 import 'package:ponto_app/modules/office_hour/model.dart';
 import 'package:ponto_app/modules/office_hour/repository.dart';
 
-class OfficeHourController extends GetxController {
+class OfficeHourController {
   final IOfficeHourRepository repository;
 
   OfficeHourController(this.repository);

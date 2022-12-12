@@ -5,7 +5,7 @@ import 'package:ponto_app/modules/home/widgets/appbar.dart';
 import 'package:ponto_app/modules/home/widgets/journey_widget.dart';
 import 'package:ponto_app/modules/ui/base.dart';
 
-class HomeScreen extends Screen<HomeController> {
+class HomeScreen extends ScreenBase<HomeController> {
   final HomePresentation presentation;
 
   const HomeScreen(this.presentation, {super.key});

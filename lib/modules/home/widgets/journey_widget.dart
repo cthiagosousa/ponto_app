@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ponto_app/modules/ui/base.dart';
 import 'package:ponto_app/modules/widgets/base_card.dart';
 
-class JourneyWidget extends AppWidget {
+class JourneyWidget extends WidgetBase {
   const JourneyWidget({super.key});
 
   @override

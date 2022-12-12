@@ -1,4 +1,4 @@
-import 'package:ponto_app/modules/interfaces/http_service.dart';
+import 'package:ponto_app/modules/services/firestore.dart';
 import 'package:ponto_app/modules/services/shared_preferences.dart';
 import 'package:ponto_app/modules/user/model.dart';
 import 'package:ponto_app/modules/utils/logger.dart';
@@ -14,15 +14,15 @@ abstract class IUserRepository {
 }
 
 class UserRepositoryImp implements IUserRepository {
-  final HttpService client;
+  final IFirestoreService firestore;
 
-  UserRepositoryImp(this.client);
+  UserRepositoryImp(this.firestore);
 
   @override
   Future<User> get(int id) async {
     try {
-      final response = await client.get("/user/$id");
-      final data = User.fromMap(response.data);
+      // final response = await client.get("/user/$id");
+      final data = User.fromMap({});
       return data;
     } catch (error, exception) {
       errorMsg("GET User Method Error", error, exception);
@@ -33,8 +33,8 @@ class UserRepositoryImp implements IUserRepository {
   @override
   Future<User> create(User user) async {
     try {
-      final response = await client.post("/user", data: user.toMap());
-      final data = User.fromMap(response.data);
+      // final response = await client.post("/user", data: user.toMap());
+      final data = User.fromMap({});
       return data;
     } catch (error, exception) {
       errorMsg("CREATE User Method Error", error, exception);

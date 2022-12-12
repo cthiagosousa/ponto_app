@@ -1,9 +1,8 @@
-import 'package:get/get.dart';
 import 'package:ponto_app/modules/user/mock.dart';
 import 'package:ponto_app/modules/user/model.dart';
 import 'package:ponto_app/modules/user/repository.dart';
 
-class UserController extends GetxController {
+class UserController {
   final IUserRepository repository;
 
   UserController(this.repository);
