@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:ponto_app/modules/utils/dateformat.dart';
 
 class User {
-  int? id;
+  String? id;
   String? name;
   String? email;
   DateTime? birthDate;
@@ -15,7 +15,7 @@ class User {
   });
 
   User copyWith({
-    int? id,
+    String? id,
     String? name,
     String? email,
     DateTime? birthDate,
@@ -39,11 +39,15 @@ class User {
 
   factory User.fromMap(Map<String, dynamic> map) {
     return User(
-      id: int.parse(map["id"]),
+      id: map["id"],
       name: map['name'] != null ? map['name'] as String : null,
       email: map['email'] != null ? map['email'] as String : null,
       birthDate: map['birthDate'] != null ? dateFormat(map['birthDate']) : null,
     );
+  }
+
+  factory User.fromFirebaseAuth(Map<String, dynamic> map) {
+    return User();
   }
 
   String toJson() => json.encode(toMap());

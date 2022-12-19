@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:ponto_app/modules/services/firebase.dart';
 import 'package:ponto_app/modules/utils/logger.dart';
 
 abstract class IFirestoreService {
@@ -9,7 +10,15 @@ abstract class IFirestoreService {
 }
 
 class FirestoreService implements IFirestoreService {
-  final FirebaseFirestore firestore = FirebaseFirestore.instance;
+  final FirebaseService firebase;
+  late final FirebaseFirestore firestore;
+
+  FirestoreService(this.firebase);
+
+  FirestoreService onInit() {
+    firestore = FirebaseFirestore.instanceFor(app: firebase.app);
+    return this;
+  }
 
   @override
   Future<List<Map<String, dynamic>>> fetch({required String collectionPath}) async {

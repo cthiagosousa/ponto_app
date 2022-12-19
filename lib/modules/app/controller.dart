@@ -4,12 +4,14 @@ import 'package:intl/date_symbol_data_local.dart';
 import 'package:ponto_app/modules/services/database/db.dart';
 
 class AppController {
-  
-  void onInit() {
+
+
+  AppController onInit() {
     WidgetsFlutterBinding.ensureInitialized();
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
     initializeDateFormatting();
     initializeDatabase();
+    return this;
   }
 
   Future<void> initializeDatabase() async {
