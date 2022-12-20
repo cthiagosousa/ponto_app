@@ -19,7 +19,7 @@ class PontoApp extends StatelessWidget {
         routerConfig: router(),
         builder: (context, child) {
           ScreenUtil.init(context);
-          return const AuthScreen();
+          return AuthScreen();
         },
       );
     });

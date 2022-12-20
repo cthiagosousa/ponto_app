@@ -12,7 +12,7 @@ RouterConfig<Object> router() {
 
 List<RouteBase> _generateRoutes() {
   return <RouteBase>[
-    GoRoute(path: Routes.sHome, name: "Home", builder: (context, state) => const HomeScreen()),
-    GoRoute(path: Routes.sAuth, name: "Auth", builder: (context, state) => const AuthScreen()),
+    GoRoute(path: Routes.sHome, name: "Home", builder: (context, state) => HomeScreen()),
+    GoRoute(path: Routes.sAuth, name: "Auth", builder: (context, state) => AuthScreen()),
   ];
 }

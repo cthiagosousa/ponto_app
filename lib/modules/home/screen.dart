@@ -5,7 +5,7 @@ import 'package:ponto_app/modules/ui/base.dart';
 
 class HomeScreen extends ScreenBase<HomeController> {
 
-  const HomeScreen({super.key});
+  HomeScreen({super.key});
 
   @override
   Widget builder(context, theme) {

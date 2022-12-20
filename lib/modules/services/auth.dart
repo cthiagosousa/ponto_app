@@ -1,12 +1,15 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:firebase_auth/firebase_auth.dart';
-
 import 'package:ponto_app/modules/services/firebase.dart';
+import 'package:ponto_app/modules/utils/exceptions.dart';
 import 'package:ponto_app/modules/utils/logger.dart';
 
 abstract class IFirebaseAuthService {
   Future<User?> login({required String email, required String password});
-  Future<User?> register({required String email, required String password});
+  Future<User?> register({
+    required String displayName, 
+    required String email, 
+    required String password, 
+    String? photoUrl});
   Future<void> logout();
 }
 
@@ -26,19 +29,32 @@ class FirebaseAuthService implements IFirebaseAuthService {
     try {
       final credential = await auth.signInWithEmailAndPassword(email: email, password: password);
       return credential.user;
-    } catch (error, exception) {
-      logMsg("Error on login", error, exception);
+    } on FirebaseAuthException catch (error) {
+      throw decodeException(error);
+    } catch (error) {
       rethrow;
     }
   }
 
   @override
-  Future<User?> register({required String email, required String password}) async {
+  Future<User?> register({
+    required String displayName,
+    required String email, 
+    required String password,
+    String? photoUrl,
+  }) async {
     try {
       final credential = await auth.createUserWithEmailAndPassword(email: email, password: password);
+      if(credential.user != null) {
+        await Future.wait([
+          credential.user!.updateDisplayName(displayName),
+          credential.user!.updatePhotoURL(photoUrl),
+        ]);
+      }
       return credential.user;
-    } catch (error, exception) {
-      logMsg("Error on register", error, exception);
+    } on FirebaseAuthException catch (error) {
+      throw decodeException(error);
+    } catch (error) {
       rethrow;
     }
   }

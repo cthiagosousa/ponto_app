@@ -12,11 +12,14 @@ abstract class AppBase<T extends Object> extends StatelessWidget {
 }
 
 abstract class ScreenBase<T extends Object> extends AppBase<T> {
-  const ScreenBase({super.key});
+  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+
+  ScreenBase({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: scaffoldKey,
       body: builder(context, Theme.of(context)),
     );
   }
