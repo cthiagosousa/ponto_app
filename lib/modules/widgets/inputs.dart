@@ -20,10 +20,27 @@ class Input extends WidgetBase {
     return TextFormField(
       controller: textController,
       focusNode: focus,
+      style: theme.textTheme.bodySmall?.copyWith(
+        color: Colors.white,
+      ),
+      cursorColor: Colors.white,
       decoration: InputDecoration(
         hintText: placeholder,
         enabled: enable,
+        hintStyle: theme.textTheme.bodySmall?.copyWith(
+          color: Colors.white,
+        ),
+        border: border,
+        enabledBorder: border,
+        focusedBorder: border,
       ),
     );
   }
+
+  InputBorder get border => const UnderlineInputBorder(
+    borderSide: BorderSide(
+      color: Colors.white,
+      width: .5
+    )
+  );
 }
