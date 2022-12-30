@@ -16,8 +16,8 @@ class HomeScreen extends ScreenBase<HomeController> {
           padding: const EdgeInsets.all(20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const JourneyWidget(),
+            children: const [
+              JourneyWidget(),
             ],
           ),
         ),

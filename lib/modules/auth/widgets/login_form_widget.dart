@@ -1,5 +1,7 @@
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:ponto_app/modules/auth/controller.dart';
+import 'package:ponto_app/modules/router/routes.dart';
 import 'package:ponto_app/modules/ui/base.dart';
 import 'package:ponto_app/modules/widgets/buttons.dart';
 import 'package:ponto_app/modules/widgets/inputs.dart';
@@ -41,7 +43,11 @@ class LoginFormWidget extends WidgetBase<AuthController> {
           SizedBox(
             width: 1.sw,
             child: Button(
-              onPressed: controller.auth, 
+              onPressed: () async {
+                await controller.auth(
+                  onLogin: () => GoRouter.of(context).pushNamed(Routes.sHome)
+                );
+              }, 
               text: "Acessar",
             ),
           ),

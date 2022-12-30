@@ -1,4 +1,4 @@
-package com.example.ponto_app
+package br.com.thiagoodev.ponto_app
 
 import io.flutter.embedding.android.FlutterActivity
 

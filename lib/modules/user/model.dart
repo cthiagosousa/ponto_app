@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'package:ponto_app/modules/utils/dateformat.dart';
 
 class User {
@@ -48,33 +47,5 @@ class User {
 
   factory User.fromFirebaseAuth(Map<String, dynamic> map) {
     return User();
-  }
-
-  String toJson() => json.encode(toMap());
-
-  factory User.fromJson(String source) => User.fromMap(json.decode(source) as Map<String, dynamic>);
-
-  @override
-  String toString() {
-    return 'User(id: $id, name: $name, email: $email, birthDate: $birthDate)';
-  }
-
-  @override
-  bool operator ==(covariant User other) {
-    if (identical(this, other)) return true;
-  
-    return 
-      other.id == id &&
-      other.name == name &&
-      other.email == email &&
-      other.birthDate == birthDate;
-  }
-
-  @override
-  int get hashCode {
-    return id.hashCode ^
-      name.hashCode ^
-      email.hashCode ^
-      birthDate.hashCode;
   }
 }

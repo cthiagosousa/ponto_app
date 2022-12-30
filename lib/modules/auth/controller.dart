@@ -7,13 +7,16 @@ class AuthController {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
-  Future<void> auth() async {
+  Future<void> auth({void Function()? onLogin}) async {
     try {
       await getIt.get<UserController>().login(
         email: emailController.text, 
         password: passwordController.text,
       );
-    } catch (error, exception) {
+      if(onLogin != null) {
+        onLogin();
+      }
+    } catch (error) {
       rethrow;
     }
   }

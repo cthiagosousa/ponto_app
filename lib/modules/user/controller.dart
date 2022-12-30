@@ -4,9 +4,9 @@ import 'package:ponto_app/modules/utils/exceptions.dart';
 import 'package:ponto_app/modules/utils/logger.dart';
 
 class UserController {
-  final IUserRepository repository;
+  final IUserRepository _repository;
 
-  UserController(this.repository);
+  UserController(this._repository);
 
   User? user;
 
@@ -14,15 +14,16 @@ class UserController {
     required String email,
     required String password}) async {
     try {
-      final user = await repository.login(email: email, password: password);
+      final user = await _repository.login(email: email, password: password);
       if(user != null) {
         this.user = user;
-        logMsg("User ${user.name} is logged");
       }
     } on AppException catch (error, exception) {
       logMsg("Error on login", error, exception);
+      rethrow;
     } catch (error, exception) {
       logMsg("Error on login", error, exception);
+      rethrow;
     }
   }
 
@@ -31,7 +32,7 @@ class UserController {
     required String email,
     required String password}) async {
     try {
-      await repository.register(
+      await _repository.register(
         displayName: displayName, 
         email: email, 
         password: password,
@@ -46,6 +47,7 @@ class UserController {
   Future logout() async {
     try {
       user = null;
+      await _repository.logout();
     } catch (error) {
       rethrow;
     }

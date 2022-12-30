@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.ponto_app">
+    package="br.com.thiagoodev.ponto_app">
    <application
         android:label="ponto_app"
         android:name="${applicationName}"

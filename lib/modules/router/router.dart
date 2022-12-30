@@ -6,6 +6,7 @@ import 'package:ponto_app/modules/router/routes.dart';
 
 RouterConfig<Object> router() {
   return GoRouter(
+    initialLocation: Routes.sAuth,
     routes: _generateRoutes(),
   );
 }

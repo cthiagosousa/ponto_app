@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:45551624761:android:b2927cf99417029d55a3e8",
         "android_client_info": {
-          "package_name": "com.example.ponto_app"
+          "package_name": "br.com.thiagoodev.ponto_app"
         }
       },
       "oauth_client": [

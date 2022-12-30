@@ -62,8 +62,11 @@ class UserRepositoryImp implements IUserRepository {
   }
 
   @override
-  Future<void> logout() {
-    // TODO: implement logout
-    throw UnimplementedError();
+  Future<void> logout() async {
+    try {
+      await auth.logout();
+    } catch (error) {
+      rethrow;
+    }
   }
 }
