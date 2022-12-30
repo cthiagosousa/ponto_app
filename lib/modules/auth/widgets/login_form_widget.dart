@@ -42,7 +42,7 @@ class LoginFormWidget extends WidgetBase<AuthController> {
           
           SizedBox(
             width: 1.sw,
-            child: Button(
+            child: LoadingButton(
               onPressed: () async {
                 await controller.auth(
                   onLogin: () => GoRouter.of(context).pushNamed(Routes.sHome)
